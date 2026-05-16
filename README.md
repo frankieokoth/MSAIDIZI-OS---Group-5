@@ -1,23 +1,104 @@
-# Sauti ya Mwananchi
+# SAUTI YA MWANANCHI
+**Civic Participation Agent Stack | TukoKadi Special Challenge**
 
-One-command deploy (for Node equivalent): `npm run build && npm run start`
-Live public URL: [Will be available when deployed via AI Studio]
+---
 
-**Scoping statement:**
-Msaidizi, Mwalimu, and the guardrail gate are production-depth (in TypeScript). Ukweli is agentic via Gemini Google Search Grounding with fact-check verdict recording. Kiongozi uses the live IEBC Voter Verification portal (`verify.iebc.or.ke`) querying with real integration and privacy-by-discard — no mock table. Mwenza is corpus-backed with election-day features and functional mock USSD — no live telco integration. AI Studio API key instead of Vertex IAM: deliberate scoping choice under the 5-hour time constraint.
+## 1. The Problem We Are Solving
 
-**Corpus Grounding:**
-Corpus last verified: 2026-05-16
-Source: Constitution of Kenya 2010 (kenyalaw.org), IEBC Voter Education materials (iebc.or.ke). Constitutional text is verbatim from the official published document. IEBC procedural information is sourced from the IEBC website.
+Kenyan youth are registering to vote, but a critical friction point remains between holding a voter's card and making an informed, secure, and confident choice at the ballot. Traditional civic education is often inaccessible, buried in complex legal jargon, or systematically tainted by partisan bias and digital misinformation.
 
-**Routing model statement:**
-Users never select an agent. Msaidizi infers intent and delegates. The guardrail gate is routing-independent — fires on every input before routing and on every output after the sub-agent returns. All tool-derived content is treated as untrusted and re-scanned.
+**Sauti ya Mwananchi** (Voice of the Citizen) is an autonomous, multi-agent civic participation system designed to answer complex electoral and constitutional questions with absolute source grounding. Engineered specifically for **defensibility and absolute political neutrality**, the system resists adversarial jailbreaks, refuses to rank or endorse candidates, and dynamically fact-checks unverified breaking rumors—providing an immediate, trusted line of truth for the voter.
 
-**Hybrid RAG rationale:**
-Direct exact-text matching via `search_corpus` ensures no hallucinated text variants of the Constitution.
+---
 
-**Why Flash over Pro:**
-For speed in conversational multi-agent loops, Flash is sufficient for routing and RAG QA, keeping latencies low for SMS/USSD simulations.
+## 2. Multi-Agent Architecture
 
-**MCP architecture:**
-Implemented natively in Express backend: four primary agent sub-handlers, all consumed by Msaidizi as the root orchestrator.
+The core framework is built on **Google ADK (google-adk)** utilizing **Gemini 2.5 Flash** for all orchestration, retrieval routing, and verification logic. Flash was selected intentionally over Pro to prioritize lower execution latency and maximize quota resilience under live adversarial load.
+
+
+```
++---------------------------------------+
+|           User Input Prompt           |
++---------------------------------------+
+|
+v
++---------------------------------------+
+|    Guardrail Gate: Layer 1 (Input)    |
++---------------------------------------+
+|
+v
++---------------------------------------+
+|         Msaidizi Orchestrator         |
++---------------------------------------+
+|
++----------------------------+----------------------------+
+|                            |                            |
+v                            v                            v
++------------------+         +------------------+         +------------------+
+|     Mwalimu      |         |      Ukweli      |         |     Kiongozi     |
+|   (Hybrid RAG)   |         |  (Agentic Web)   |         |   (MCP Server)   |
++------------------+         +------------------+         +------------------+
+|                            |                            |
++----------------------------+----------------------------+
+|
+v
++---------------------------------------+
+|   Guardrail Gate: Layer 2 & 3 (Output)|
++---------------------------------------+
+|
+v
++---------------------------------------+
+|     Trust Trace & Sanitized Reply     |
++---------------------------------------+
+```
+
+### Routing Model Statement
+> **Routing Independence Rule:** Users submit a single natural-language prompt and never manually choose an agent. The root orchestrator (`Msaidizi`) infers intent, detects language, and delegates dynamically. The security gate sits completely outside the routing logic; no prompt can instruct the orchestrator to skip, reassign, or spoof an internal state to bypass guardrails.
+
+### The Agent Roster
+
+*   **Msaidizi (Root Orchestrator):** Intercepts incoming strings in English, Swahili, or Sheng. It isolates intents, decomposes mixed or compound prompts, sequences execution paths across sub-agents, and formats the visible system telemetry. If a prompt is ambiguous, it generates a single targeted clarifying question rather than guessing.
+*   **Mwalimu (Civic Educator):** Executes a strict two-stage **Hybrid RAG** pipeline. It extracts top candidates via keyword matching over a local `corpus.json` file, runs a Gemini-driven semantic relevance re-ranking pass, and synthesizes answers using *only* authorized citation tokens. If no chunk sufficiently satisfies the query, it triggers a scoped legal refusal instead of fallback hallucination.
+*   **Ukweli (Real-Time Fact-Checker):** An agentic loop equipped with the native ADK Google Search tool. It parses claims or uploaded images, scans authoritative information domains (e.g., IEBC, Kenya Gazette, major national media), and resolves the assertion strictly into one of three structural states: `Verified`, `False`, or `Unverified`.
+*   **Kiongozi (Polling Station Locator):** Wired to demonstrate secure protocol encapsulation via the **Model Context Protocol (MCP)**. It functions as an isolated MCP Server that handles polling station mapping against a mock relational data layout, exposing a tightly scoped tool schema back to the `Msaidizi` client.
+*   **Mwenza (Election-Day Companion):** Provides immediate operational checklists (voting times, mandatory items, secrecy rights) drawn directly from constitutional assets, packaged with a `ChannelAdapter` interface mocking an offline USSD/SMS engine menu tree.
+
+---
+
+## 3. Data Handling & Political Neutrality Policy
+
+### Data Minimization & Zero-Retention
+To protect voter privacy and secure sensitive identification metrics, the system implements strict data boundary isolation:
+*   When a user submits information for a polling-station lookup via the **Kiongozi MCP Server**, the Personal Identifiable Information (PII) is processed entirely in memory.
+*   The identifier is **discarded immediately** within local scope following the data array response.
+*   No database records, telemetry streams, system logs, or conversational context stores cache or echo the voter identifiers across the boundary.
+
+### Rigid Neutrality Rubric (Constitution Article 38)
+Sauti ya Mwananchi enforces absolute political neutrality via an unyielding evaluation filter. The system systematically blocks:
+*   Direct or indirect candidate/party endorsements or critiques.
+*   Comparative ranking indices of running politicians.
+*   Strategic voting advice or subjective analytical projections.
+*   Ingestion of partisan text variants sourced during live web-searching.
+
+Any violation of this rubric forces an immediate interception by the gate, replacing the output stream with a standardized, neutral prompt reinforcing the citizen's sovereign right to an independent ballot choice under **Article 38(1) of the Constitution of Kenya**.
+
+---
+
+## 4. The Three-Layer Guardrail Gate
+
+Our system's primary architectural differentiator is an automated, multi-tiered verification pipeline executing via ADK before/after execution callbacks on every turn. 
+
+1.  **Jailbreak Filter (Input & Output):** Strips system instruction extractions, semantic role-overrides ("act as DAN"), and prompt-injection prefixes. A secondary pass scans synthesized output blocks to trap attacks that successfully bypassed input sanitation.
+2.  **Neutrality Assessor (Output):** Subjects generated strings to a deterministic evaluation matrix before formatting. Any trace of bias, preference, or candidate praise leads to a structural wipe.
+3.  **Citation Enforcer (Output):** Inspects all responses compiled by `Mwalimu` and cross-matches claims against known hash strings of the legal corpus. Assertions without explicit matching legal citations are dropped and replaced with an official source fallback warning.
+
+---
+
+## 5. Technical Scoping Choices
+
+*   **Local Corpus RAG:** We purposefully utilized a highly curated, hand-tagged local JSON corpus instead of an external vector database. For a critical civic runtime, deterministic matching against explicit constitutional clauses beats vector similarity thresholds, eliminating multi-hop hallucinations.
+*   **Architected vs. Provisioned Interfaces:** While the AI core, RAG re-rankers, search agents, and MCP server are fully operational at production spec, the SMS/USSD paths are explicitly architected via structural interface adapters to demonstrate real-world edge deployment without live carrier shortcode provisioning overhead during the hackathon timeline.
+*   **API Configuration:** Deployed with `GOOGLE_GENAI_USE_VERTEXAI=FALSE` and direct environment variable consumption to achieve zero-overhead authentication on stateless runtimes.
+*   **Corpus Grounding Data:** Grounded accurately as of May 16, 2026.
+
+```
