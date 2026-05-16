@@ -1,0 +1,152 @@
+[
+  {
+    "id": "art38-1-political-choices",
+    "citation": "Constitution of Kenya 2010, Article 38(1)",
+    "topic": "political_rights",
+    "text": "Every citizen is free to make political choices, which includes the right— (a) to form, or participate in forming, a political party; (b) to participate in the activities of, or recruit members for, a political party; or (c) to campaign for a political party or cause."
+  },
+  {
+    "id": "art38-2-right-to-vote",
+    "citation": "Constitution of Kenya 2010, Article 38(2)",
+    "topic": "right_to_vote",
+    "text": "Every citizen has the right to free, fair and regular elections based on universal suffrage and the free expression of the will of the electors for— (a) any elective public body or office established under this Constitution; or (b) any office of any political party of which the citizen is a member."
+  },
+  {
+    "id": "art38-3-registration-and-candidacy",
+    "citation": "Constitution of Kenya 2010, Article 38(3)",
+    "topic": "voter_registration_rights",
+    "text": "Every adult citizen has the right, without unreasonable restrictions— (a) to be registered as a voter; (b) to vote by secret ballot in any election or referendum; and (c) to be a candidate for public office, or office within a political party of which the citizen is a member and, if elected, to hold office."
+  },
+  {
+    "id": "art81-electoral-system-principles",
+    "citation": "Constitution of Kenya 2010, Article 81",
+    "topic": "electoral_principles",
+    "text": "The electoral system shall comply with the following principles— (a) freedom of citizens to exercise their political rights under Article 38; (b) not more than two-thirds of the members of elective public bodies shall be of the same gender; (c) fair representation of persons with disabilities; (d) universal suffrage based on the aspiration for fair representation and equality of vote; and (e) free and fair elections, which are— (i) by secret ballot; (ii) free from violence, intimidation, improper influence or corruption; (iii) conducted by an independent body; (iv) transparent; and (v) administered in an impartial, neutral, efficient, accurate and accountable manner."
+  },
+  {
+    "id": "art83-voter-registration-qualifications",
+    "citation": "Constitution of Kenya 2010, Article 83(1)",
+    "topic": "voter_registration_eligibility",
+    "text": "A person qualifies for registration as a voter at elections or referenda if the person— (a) is an adult citizen; (b) is not declared to be of unsound mind; and (c) has not been convicted of an election offence during the preceding five years."
+  },
+  {
+    "id": "art83-2-one-registration-centre",
+    "citation": "Constitution of Kenya 2010, Article 83(2)",
+    "topic": "voter_registration_process",
+    "text": "A citizen who qualifies for registration as a voter shall be registered at only one registration centre."
+  },
+  {
+    "id": "art83-3-facilitation",
+    "citation": "Constitution of Kenya 2010, Article 83(3)",
+    "topic": "voter_registration_access",
+    "text": "Administrative arrangements for the registration of voters and the conduct of elections shall be designed to facilitate, and shall not deny, an eligible citizen the right to vote or stand for election."
+  },
+  {
+    "id": "art86-voting-integrity",
+    "citation": "Constitution of Kenya 2010, Article 86",
+    "topic": "vote_secrecy_and_integrity",
+    "text": "At every election, the Independent Electoral and Boundaries Commission shall ensure that— (a) whatever voting method is used, the system is simple, accurate, verifiable, secure, accountable and transparent; (b) the votes cast are counted, tabulated and the results announced promptly by the presiding officer at each polling station; (c) the results from the polling stations are openly and accurately collated and promptly announced by the returning officer; and (d) appropriate structures and mechanisms to eliminate electoral malpractice are put in place, including the safekeeping of election materials."
+  },
+  {
+    "id": "art87-electoral-disputes",
+    "citation": "Constitution of Kenya 2010, Article 87(2)",
+    "topic": "disputing_election_results",
+    "text": "Petitions concerning an election, other than a presidential election, shall be filed within twenty-eight days after the declaration of the election results by the Independent Electoral and Boundaries Commission."
+  },
+  {
+    "id": "art88-iebc-mandate",
+    "citation": "Constitution of Kenya 2010, Article 88(4)",
+    "topic": "iebc_mandate",
+    "text": "The Commission is responsible for conducting or supervising referenda and elections to any elective body or office established by this Constitution, and any other elections as prescribed by an Act of Parliament and, in particular, for— (a) the continuous registration of citizens as voters; (b) the regular revision of the voters' roll; (c) the delimitation of constituencies and wards; (d) the regulation of the process by which parties nominate candidates for elections; (e) the settlement of electoral disputes, including disputes relating to or arising from nominations but excluding election petitions and disputes subsequent to the declaration of election results; (f) the registration of candidates for election; (g) voter education; (h) the facilitation of the observation, monitoring and evaluation of elections."
+  },
+  {
+    "id": "art101-election-date",
+    "citation": "Constitution of Kenya 2010, Article 101(1)",
+    "topic": "election_date",
+    "text": "A general election of members of Parliament shall be held on the second Tuesday in August in every fifth year."
+  },
+  {
+    "id": "art138-4-presidential-declaration",
+    "citation": "Constitution of Kenya 2010, Article 138(4)",
+    "topic": "presidential_election_result",
+    "text": "A candidate shall be declared elected as President if the candidate receives— (a) more than half of all the votes cast in the election; and (b) at least twenty-five per cent of the votes cast in each of more than half of the counties."
+  },
+  {
+    "id": "art138-3b-secret-ballot-presidential",
+    "citation": "Constitution of Kenya 2010, Article 138(3)(b)",
+    "topic": "vote_secrecy",
+    "text": "The poll shall be taken by secret ballot on the day specified in Article 101(1) at the time, in the places and in the manner prescribed under an Act of Parliament."
+  },
+  {
+    "id": "art140-presidential-petition",
+    "citation": "Constitution of Kenya 2010, Article 140(1) and (2)",
+    "topic": "challenging_presidential_election",
+    "text": "A person may file a petition in the Supreme Court to challenge the election of the President-elect within seven days after the date of the declaration of the results of the presidential election. Within fourteen days after the filing of a petition under clause (1), the Supreme Court shall hear and determine the petition and its decision shall be final."
+  },
+  {
+    "id": "art91-party-conduct-bribery-intimidation",
+    "citation": "Constitution of Kenya 2010, Article 91(2)",
+    "topic": "election_offences_party_conduct",
+    "text": "A political party shall not— (b) engage in or encourage violence by, or intimidation of, its members, supporters, opponents or any other person; (d) engage in bribery or other forms of corruption."
+  },
+  {
+    "id": "iebc-verify-portal",
+    "citation": "IEBC Voter Verification Portal (verify.iebc.or.ke)",
+    "topic": "polling_station_lookup",
+    "text": "Voters can check their polling station details online at verify.iebc.or.ke by entering their national ID or passport number and year of birth. The portal displays the voter's name, County, Constituency, Ward, Polling Centre, Polling Station and Stream. Voters may also check by sending their IDNumber#YearOfBirth to SMS number 70000."
+  },
+  {
+    "id": "iebc-registration-centres-portal",
+    "citation": "IEBC Registration and Polling Centres (iebc.or.ke/registration/?where=)",
+    "topic": "polling_station_directory",
+    "text": "The IEBC has 24,559 registration centres across the 290 constituencies. These registration centres become polling centres during elections. Voters can browse all polling centres by county using the official IEBC Registration and Polling Centres page at iebc.or.ke/registration/?where= and selecting their county from the dropdown menu."
+  },
+  {
+    "id": "iebc-election-day-id-requirement",
+    "citation": "IEBC Voter Education (iebc.or.ke)",
+    "topic": "election_day_requirements",
+    "text": "To vote, a registered voter must present their original national identity card or valid passport at their assigned polling station. Photocopies are not accepted. IEBC officials will verify the voter's details using the Kenya Integrated Election Management System (KIEMS) kit before issuing ballot papers."
+  },
+  {
+    "id": "iebc-election-day-ballot-papers",
+    "citation": "IEBC Voter Education (iebc.or.ke)",
+    "topic": "election_day_process",
+    "text": "After verification at the polling station, a voter is issued six ballot papers corresponding to the six elective positions: President, Governor, Senator, Women's Representative, Member of National Assembly, and Member of County Assembly. The voter marks their choices in a private booth and deposits each ballot in the corresponding ballot box."
+  },
+  {
+    "id": "scope-neutrality-statement",
+    "citation": "Sauti ya Mwananchi — Scope Statement",
+    "topic": "scope_and_neutrality",
+    "text": "Sauti ya Mwananchi provides civic information about voter registration, constitutional rights, election procedures, and fact-checking of claims. It does not endorse any candidate or political party, rank candidates, advise on how to vote, or express any opinion on political outcomes. All answers are grounded in cited official sources. Citizens' right to make free political choices is protected under Article 38(1) of the Constitution of Kenya 2010."
+  },
+  {
+    "id": "iebc-assisted-voting",
+    "citation": "IEBC Voter Education (iebc.or.ke)",
+    "topic": "assisted_voting",
+    "text": "Voters with disabilities, the elderly, and expectant mothers are given priority at polling stations. A voter who requires assistance to vote is permitted to be accompanied by a person of their choice, provided that person is 18 years or older, or they may be assisted by the Presiding Officer in the presence of political party agents."
+  },
+  {
+    "id": "iebc-spoilt-ballot",
+    "citation": "IEBC Voter Education (iebc.or.ke)",
+    "topic": "spoilt_ballot",
+    "text": "If a voter inadvertently spoils a ballot paper, they can return it to the Presiding Officer who will cancel it and issue a new one. A voter can only be issued a replacement ballot paper up to a maximum of two times."
+  },
+  {
+    "id": "iebc-turned-away",
+    "citation": "IEBC Voter Education (iebc.or.ke)",
+    "topic": "turned_away_at_station",
+    "text": "A voter may be turned away if they do not have an original national ID or valid passport, if their name is not in the voter register for that specific polling station, or if they have already voted. If your name is missing, consult the IEBC clerks or Presiding Officer for guidance."
+  },
+  {
+    "id": "iebc-voting-hours",
+    "citation": "IEBC Voter Education (iebc.or.ke)",
+    "topic": "voting_hours",
+    "text": "Voting hours at all polling stations are from 6:00 AM to 5:00 PM. Any voter who is already on the queue at 5:00 PM will be allowed to vote, even after the closing time."
+  },
+  {
+    "id": "elections-act-offences",
+    "citation": "Elections Act (No. 24 of 2011)",
+    "topic": "election_offences",
+    "text": "It is an offence to engage in voter impersonation, voting more than once, bribery, treating, or undue influence. If you witness an election offence, report it immediately to the Presiding Officer, security personnel at the polling station, or IEBC officials."
+  }
+]

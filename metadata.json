@@ -1,0 +1,10 @@
+{
+  "name": "Msaidizi Civic Assistant",
+  "description": "A politically neutral, multi-agent civic education platform for Kenyan elections featuring orchestrator, educator, locator, and fact-checker agents.",
+  "requestFramePermissions": [
+    "camera"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
