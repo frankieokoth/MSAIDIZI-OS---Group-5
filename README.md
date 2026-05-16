@@ -15,7 +15,19 @@ Kenyan youth are registering to vote, but a critical friction point remains betw
 
 ---
 
-## 🧠 2. Multi-Agent Architecture
+## ⚖️ 2. Core Constraints & System Guarantees (The TukoKadi Mandate)
+
+To satisfy the strictest requirements of the TukoKadi Special Challenge, Sauti ya Mwananchi is engineered around five non-negotiable operational laws:
+
+1. **Absolute Political Neutrality at All Times:** Standard LLMs have latent political biases. Sauti ya Mwananchi operates a deterministic Neutrality Assessor on both input and output. It strictly refuses to rank, endorse, or criticize candidates or parties, actively protecting the voter's independent choice.
+2. **Mandatory Explicit Citations:** Every single civic claim synthesized by the system **must cite the IEBC, the Constitution of Kenya 2010, or an Electoral Act**. Assertions lacking a verifiable citation hash are automatically dropped by the Citation Enforcer gate and replaced with a refusal.
+3. **Grounded Misinformation Verdicts:** The Ukweli agent must ground all facts using Google Search Grounding across strictly authoritative domains. If evidence is lacking or ambiguous, **"Unverified" is a valid and required response**. It will never guess or hallucinate a fact-check.
+4. **Zero-Retention of Voter Data:** **No voter ID data is retained beyond the immediate session execution.** Identifiers (National ID, Year of Birth) passed to the Kiongozi agent are explicitly discarded in ephemeral memory immediately after the IEBC verification portal fetch.
+5. **Hardened Against Live Adversarial Jailbreaks:** Knowing that **judges will actively attempt to jailbreak submissions on stage**, the system employs a multi-tiered Jailbreak Filter (Layer 1 of the Guardrail Gate) to trap prompt injections, role overrides ("Act as a biased reporter"), and systemic manipulation attempts before and after they reach the core orchestrator.
+
+---
+
+## 🧠 3. Multi-Agent Architecture
 
 The core framework is built on a custom **Node.js/TypeScript** orchestrator utilizing **Gemini 2.5 Flash** for all language modeling, retrieval routing, and verification logic. Flash was selected intentionally over Pro to prioritize lower execution latency and maximize quota resilience under live adversarial load. The architecture mirrors the **Model Context Protocol (MCP)** methodology, encapsulating tools into strict operational boundaries.
 
@@ -58,7 +70,7 @@ The core framework is built on a custom **Node.js/TypeScript** orchestrator util
 
 ---
 
-## 🤖 3. The Agent Roster
+## 🤖 4. The Agent Roster
 
 ### 🛡️ Msaidizi (Root Orchestrator)
 Intercepts incoming strings in English, Swahili, or Sheng. It isolates intents, decomposes mixed or compound prompts, sequences execution paths across sub-agents, and formats the visible system telemetry. If a prompt is ambiguous, it generates a single targeted clarifying question rather than guessing.
@@ -80,7 +92,7 @@ Provides immediate operational checklists (voting times, mandatory items, secrec
 
 ---
 
-## 🔐 4. The Three-Layer Guardrail Gate (Why This Wins)
+## 🔐 5. The Three-Layer Guardrail Gate (Why This Wins)
 
 Our system's primary architectural differentiator is an automated, multi-tiered verification pipeline executing deterministically via input/output middleware on *every* single turn.
 
@@ -101,7 +113,7 @@ Inspects all responses compiled by `Mwalimu` and cross-matches claims against kn
 
 ---
 
-## 🔏 5. Data Privacy & Zero-Retention Policy
+## 🔏 6. Data Privacy & Zero-Retention Policy
 
 To protect voter privacy and secure sensitive identification metrics, the system implements strict data boundary isolation:
 * When a user submits information for a polling-station lookup via **Kiongozi**, the Personal Identifiable Information (PII — National ID, Year of Birth) is processed entirely in ephemeral memory.
@@ -110,7 +122,7 @@ To protect voter privacy and secure sensitive identification metrics, the system
 
 ---
 
-## 🏗️ 6. Technical Scoping & Design Choices
+## 🏗️ 7. Technical Scoping & Design Choices
 
 * **Local Corpus RAG:** We purposefully utilized a highly curated, hand-tagged local JSON corpus (`corpus.json`) instead of an external vector database. For a critical civic runtime, deterministic matching against explicit constitutional clauses beats vector similarity thresholds, inherently eliminating multi-hop hallucinations.
 * **Architected vs. Provisioned Interfaces:** While the AI core, RAG re-rankers, search agents, and live portal scraping are fully operational at production spec, the SMS/USSD paths are explicitly architected via structural interface adapters to demonstrate real-world edge deployment without live carrier shortcode provisioning overhead during the hackathon.
@@ -118,7 +130,7 @@ To protect voter privacy and secure sensitive identification metrics, the system
 
 ---
 
-## 💻 7. Developer Setup & Deployment
+## 💻 8. Developer Setup & Deployment
 
 ### Prerequisites
 * Node.js v18+
@@ -149,7 +161,7 @@ npm run start
 
 ---
 
-## 🎯 8. Live Demo Testing Guide
+## 🎯 9. Live Demo Testing Guide
 
 To test the resilience and capabilities of the platform, try the following prompts in the UI:
 
